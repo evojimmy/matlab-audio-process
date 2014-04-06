@@ -20,14 +20,12 @@ function [ y ] = audio_process( fn, x, window, hop_size )
     %             /      \
     overlap_size = window_size - hop_size;
     if hop_size > window_size / 2
-        pre = [linspace(0, 1, overlap_size)';zeros(hop_size, 1)];
-        post = [zeros(hop_size, 1);linspace(1, 0, overlap_size)'];
-        link_window = ones(window_size, 1) - pre - post;
+        link_window = [linspace(0, 1, overlap_size)';ones(hop_size-overlap_size, 1);linspace(1, 0, overlap_size)'];
     else
         mag = (hop_size / overlap_size);
         link_window = [linspace(0, mag, hop_size)'; ones(overlap_size-hop_size, 1) .* mag; linspace(mag, 0, hop_size)'];
     end
-    plot(link_window)
+    %plot(link_window)
     link_window_multi = link_window * ones(1, observations);
 
 

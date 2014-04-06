@@ -6,6 +6,8 @@ Apply Short Time Fourier Transform to audio signal, and apply frequency-domain t
 + Extract four peaks with greatest magnitude
 + Randomize the phase
 
-To start, edit parameters in `script_*.m` files and run them.
+To start, edit parameters in `script.m` and run it.
+
+Octave compatible, although it seems octave is much slower than MATLAB (?)
 
 License: MIT
